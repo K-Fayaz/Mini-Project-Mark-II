@@ -1,0 +1,20 @@
+<nav class="navbar">
+  <div class="logo">
+    <h1>OnTheGo</h1>
+    <h1 class="ham-icon">&#9776;</h1>
+  </div>
+  <div class="nav-links">
+    <ul>
+      <% if(currUser){ %>
+        <li><a href="/request/ride">Request a ride</a></li>
+        <li><a href="/offer/ride">Offer a ride</a></li>
+        <li><a href="/account">Account</a></li>
+        <li><a href="/account/requests">requests</a></li>
+      <% }else{ %>
+        <li><a href="/login">Home</a></li>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/register">Register</a></li>
+      <% } %>
+    </ul>
+  </div>
+</nav>

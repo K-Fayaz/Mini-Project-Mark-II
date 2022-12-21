@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Enter OTP</title>
+
+  <!-- CSS files -->
+  <link rel="stylesheet" href="/CSS/index.css">
+  <link rel="stylesheet" href="/CSS/nav.css">
+  <link rel="stylesheet" href="/CSS/validate_otp.css">
+
+
+  <!-- Javascript files are here -->
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+  <script src="/JS/offer_manage.js" defer charset="utf-8" ></script>
+
+</head>
+<body>
+  <%- include('./partials/navbar.ejs') %>
+
+   <div class="otp-form-container">
+        <div class="otp-form">
+          <form class="form" action="/otp/validate/ride/start/" method="POST">
+              <h1>Enter OTP</h1>
+                <div class="field-container otp-field">
+                    <input type="text" name="otp" id="otp" required>
+                </div>
+                <button>Submit</button>
+            </form>
+        </div>
+   </div>
+  
+</body>
+</html>

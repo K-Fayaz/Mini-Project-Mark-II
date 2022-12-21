@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Validate Email | OneTheGo</title>
+
+  <!-- CSS files -->
+  <link rel="stylesheet" href="/CSS/index.css">
+  <link rel="stylesheet" href="/CSS/login.css">
+  <link rel="stylesheet" href="/CSS/nav.css">
+
+
+  <!-- Javascript files are here -->
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+  <script src="/JS/validateEmail.js" defer charset="utf-8"></script>
+
+</head>
+<body>
+  <%- include('./partials/navbar.ejs') %>
+
+  <div class="form-container" id="validate-form-container">
+    <div class="main">
+      <h1>Validate Email</h1>
+      <form class="form" id="validate-email-form">
+        <div class="input-field email-field">
+          <input type="email" name="email" id="email-verify" autocomplete="off">
+          <p class="invalid" id="invalid-email-verify"></p>
+          <p class="valid" id="valid-email-verify">Email is sent!</p>
+        </div>
+        <button type="submit" id="email-verify--btn" class="disable">Verify Email</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- register form is Here  -->
+    <div class="form-container" id="user-details-form" style="display: none;">
+      <div class="main">
+        <h1>Create account</h1>
+        <form class="form" id="register-form">
+          <div class="input-field username-field">
+            <input type="text" name="username" id="username" autocomplete="off" autofocus="on" required>
+            <p class="invalid" id="user"></p>
+          </div>
+          <div class="input-field email-field">
+            <input type="email" name="email" id="email" autocomplete="off" required>
+            <p class="invalid" id="invalid-email"></p>
+          </div>
+          <div class="input-field phone-field">
+            <input type="number" name="phone" id="phone" autocomplete="off" required>
+            <p class="invalid" id="invalid-phone"></p>
+          </div>
+          <div class="input-field password-field">
+            <input type="password" name="password" id="password" autocomplete="off" required>
+            <p class="invalid" id="invalid-password"></p>
+          </div>
+          <button>Register</button>
+        </div>
+      </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+{
+  "name": "mini",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@sendgrid/mail": "^7.7.0",
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "currency-converter-lt": "^2.0.0-beta.0",
+    "dotenv": "^16.0.2",
+    "ejs-mate": "^4.0.0",
+    "express": "^4.18.1",
+    "get-eth-price": "^1.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.6.1",
+    "nodemon": "^2.0.20",
+    "otp-generator": "^4.0.0",
+    "path": "^0.12.7",
+    "twilio": "^3.82.0",
+    "web3": "^1.8.1"
+  }
+}

@@ -1,0 +1,70 @@
+.dashboard-data{
+  width: 100%;
+  /* display: flex */
+  /* background: red; */
+}
+.request{
+  width: 90%;
+  height: auto;
+  max-height:230px;
+  /* background: green; */
+  border: 1px solid black;
+  margin: 10px 0;
+  padding: 10px;
+}
+.request-maker-info{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background: rgba(211,210,215,.53) ;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.request-maker-info div{
+  flex-basis: 20%;
+  background: rgba(211,210,215,.53);
+  display: flex;
+  justify-content: space-around;
+}
+
+.request-maker-info div div{
+  width: 40px;
+  height: 40px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  background: teal;
+  border-radius: 20px;
+  padding: 3px 0;
+  color: white;
+  font-weight: bolder;
+}
+.ride-path{
+  display: flex;
+  background: rgba(211,210,215,.53);
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.ride-path h5{
+  margin: 5px 0;
+  margin-left: 10px;
+}
+
+.ride-timings{
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0;
+  padding: 10px 0;
+}
+
+.reject-request{
+  background: red;
+  border: 1px solid red;
+}
+
+.request-manage-btns{
+  display: flex;
+  width: 40%;
+  justify-content: space-around;
+}

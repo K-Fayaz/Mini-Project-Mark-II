@@ -1,0 +1,46 @@
+.scheduled-ride-container{
+    margin: 10px 0;
+}
+.ride{
+    background: rgba(194, 189, 189, 0.675);
+    width: 80%;
+    padding: 20px;
+}
+.ride *{
+    margin: 5px 0;
+}
+.ride-users,.ride-timings,.ride-info{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+.ride-routes h4{
+    margin: 5px 0;
+}
+
+/* OTP  */
+.otp-form-container{
+   position: absolute;
+   left: 40%;
+   top: 32%;
+   padding: 30px;
+   box-shadow: -2px 0px 2px 3px rgba(0,0,0,0.14);
+   width: 400px;
+   background: white;
+   display: none;
+}
+
+.otp-form-container .otp-form .form .field-container{
+    width: 100%;
+}
+
+.otp-form-container .otp-form .form .field-container input{
+    width: 100%;
+    padding: 10px 0;
+}
+
+.symbol{
+    width: 100%;
+    display:flex;
+    justify-content: flex-end;
+}

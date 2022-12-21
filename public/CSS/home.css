@@ -1,0 +1,11 @@
+.hero-container{
+  width: 100%;
+  height: auto;
+  height: 100vh;
+  background: url("../Image/mapImage.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.navbar{
+  background: transparent;
+}

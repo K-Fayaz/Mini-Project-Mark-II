@@ -1,0 +1,41 @@
+.navbar{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  /* background: red; */
+  justify-content: space-between;
+  height: 80px;
+  align-items: center;
+  background: var(--primary-color);
+  color: var(--text-primary);
+  box-shadow: -2px 0px 2px 3px rgba(0,0,0,0.14);
+}
+
+.logo{
+  flex-basis: 20%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.ham-icon{
+  display: none;
+}
+
+.nav-links{
+  flex-basis: 60%;
+  /* background: green; */
+}
+
+.nav-links ul{
+  display: flex;
+  justify-content: space-around;
+}
+
+.nav-links ul li{
+  list-style-type: none;
+}
+
+.nav-links ul li a{
+  text-decoration: none;
+  color: var(--text-primary);
+}

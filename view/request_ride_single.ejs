@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Request for a ride</title>
+
+  <!-- CSS files -->
+  <link rel="stylesheet" href="/CSS/index.css">
+  <link rel="stylesheet" href="/CSS/nav.css">
+  <link rel="stylesheet" href="/CSS/request_single.css">
+
+
+  <!-- Javascript files are here -->
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+</head>
+<body>
+  <%- include('./partials/navbar.ejs') %>
+
+  <div class="grid-container">
+    <div class="ride-info-container">
+        <h3>From :<%= ride.from %></h3>
+        <h3>To :<%= ride.to %></h3>
+        <div class="ride-timing">
+            <h4>Date: <%= ride.date %></h4>
+            <h4>Time: <%= ride.time %></h4>
+        </div>
+        <div class="ride-bill">
+            <h4>Avaiable Seats: <span id="seat-available"><%= ride.seats %></span></h4>
+            <h4>Price per seats: <span id="set-price"><%= ride.price %></span></h4>
+        </div>
+    </div>
+    <div class="request-form-container">
+        <form action="/ride/request/<%= ride._id %>" method="POST">
+            <div class="field-container from-field">
+                <input type="text" name="from" id="from" value="<%= ride.from %>" readonly>
+            </div>
+            <div class="field-container to-field">
+                <input type="text" name="to" id="to" value="<%= ride.to %>" readonly>
+            </div>
+            <div class="row-fields">
+                <div class="field-container time-field">
+                    <input type="text" name="time" id="time" value="<%= ride.time %>" readonly>
+                </div>
+                <div class="field-container date-field">
+                    <input type="text" name="date" id="date" value="<%= ride.date %>" readonly>
+                </div>
+            </div>
+            <div class="row-fields">
+                <div class="field-container seats-field">
+                    <input type="number" name="seats" id="seats">
+                    <p id="seats-err" style="color: red; font-size: 13px;"></p>
+                </div>
+                <div class="field-container price-field">
+                    <input type="number" name="price" id="price" readonly>
+                </div>
+            </div>
+            <button id="btn-req">Request for ride</button>
+        </form>
+    </div>
+  </div>
+
+    <script>
+        let seats    = document.getElementById("seats");
+        let price    = document.getElementById("price");
+        let btn      = document.getElementById("btn-req");
+        let setPrice = document.getElementById("set-price");
+        let avSeats  = document.getElementById("seat-available");
+
+
+        function disable()
+        {
+            btn.disable = true;
+            btn.style.background = "#fbff025a";
+            btn.style.cursor = "not-allowed";
+        }
+
+        disable();
+
+        function enable()
+        {
+            btn.disable = false;
+            btn.style.cursor = "pointer"
+            btn.style.background = "#FFDF00";
+        }
+
+        seats.addEventListener("input",(event)=>{
+            if(event.target.value > avSeats.innerText)
+            {
+                document.getElementById("seats-err").innerText = `Number of seats should be less than or equal to ${avSeats.innerText}`;
+                price.value = "";
+                disable();
+            }
+            else if(event.target.value == 0)
+            {
+                document.getElementById("seats-err").innerText = `Number of seats cannot be Zero`;
+                price.value = "";
+                disable();
+            }
+            else{
+                enable();
+                price.value = Number(setPrice.innerText) * seats.value;
+            }
+        })
+    </script>
+
+</body>
+</html>

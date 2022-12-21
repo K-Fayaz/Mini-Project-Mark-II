@@ -1,0 +1,209 @@
+.form-container{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+  /* background: red; */
+}
+
+.main{
+  /* background: pink; */
+  width: 25%;
+  border: 1px solid black;
+  padding: 20px;
+}
+.main h1{
+  text-align: center;
+}
+.input-field{
+  margin: 20px 0;
+  position: relative;
+}
+.input-field,.input-field input{
+  width:100%;
+}
+
+.user-field::after{
+  position: absolute;
+  left: 5px;
+  top: -10px;
+  content: "username";
+  background: white;
+  padding: 3px 10px;
+  font-size: 13px;
+}
+
+.pass-field::after{
+  font-size: 13px;
+  content: "password";
+  position: absolute;
+  left: 5px;
+  top: -10px;
+  background: white;
+  padding: 3px 10px;
+}
+
+.address-field::after{
+  font-size: 13px;
+  content: "Address";
+  position: absolute;
+  left: 5px;
+  top: -10px;
+  background: white;
+  padding: 3px 10px;
+}
+
+.Key-field::after{
+  font-size: 13px;
+  content: "Key";
+  position: absolute;
+  left: 5px;
+  top: -10px;
+  background: white;
+  padding: 3px 10px;
+}
+
+.phone-field::after , .username-field::after , .email-field::after ,.password-field::after{
+  font-size: 13px;
+  position: absolute;
+  left: 5px;
+  top: -10px;
+  background: white;
+  padding: 3px 10px;
+}
+
+.password-field::after{
+  content:"Password"
+}
+
+.email-field::after{
+  content: "Email"
+}
+
+.username-field::after{
+  content: "Username";
+}
+.phone-field::after{
+  content: "phone Number";
+}
+
+input{
+  height: 45px;
+  font-size: 15px;
+  transition-duration: 200ms;
+  transition-property: all;
+  padding-left: 5px;
+  font-weight: lighter;
+}
+.invalid{
+  color: red;
+  /* display: none; */
+}
+.valid{
+  color: green;
+  display: none;
+}
+input:focus{
+  outline: none;
+  padding-left: 15px;
+}
+
+form button{
+  background: var(--brand-color);
+  padding: 10px 30px;
+  color: black;
+  font-weight: bolder;
+  border-radius: 3px;
+  appearance: none;
+  border: 1px solid orange;
+  cursor: pointer;
+}
+
+
+.disable{
+  background: rgba(127,131,131,1);
+  color: white;
+  opacity: 0.5;
+  border: 1px solid black;
+  cursor:not-allowed;
+}
+
+
+.chage-pass-form-container{
+  width: 100%;
+  height: 60vh;
+  /* background: red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chage-pass-form-container .form{
+  width: 30%;
+  /* height: 300px; */
+  padding: 20px ;
+  border: 1px solid black;
+}
+
+.chage-pass-form-container .form .field-container{
+  margin: 15px 0;
+  position: relative;
+}
+
+.visibility{
+  position: absolute;
+  left: 92%;
+  top: 14px;
+  color: grey;
+  cursor: pointer;
+  /* background-color: red; */
+}
+
+.chage-pass-form-container .form .field-container::after{
+  position: absolute;
+  top: -8px;
+  left: 10px;
+  background: white;
+  padding: 0 10px;
+  font-size: 14px;
+}
+
+.chage-pass-form-container .form .field-container , .chage-pass-form-container .form .field-container input{
+  width: 100%;
+}
+
+.new-password-field::after{
+  content:"New Password";
+}
+.confirm-password-field::after{
+  content:"confirm password";
+}
+/* .visibility-container{
+  display: flex;
+  background-color: red;
+  justify-content:flex-start ;
+} */
+
+/* .visibility-container label{
+  flex-basis: 60%;
+  background: orange;
+} */
+
+/* .visisble-check{
+  width: 20px;
+  height: 20px;
+  position: relative;
+  left: -100px;
+} */
+
+.chage-pass-form-container .form button{
+  margin-top: 10px;
+  /* background-color:; */
+}
+
+.err-text{
+  color: red;
+  font-size: 12px;
+}

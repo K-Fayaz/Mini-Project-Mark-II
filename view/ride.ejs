@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>OneTheGo</title>
+
+  <!-- CSS files -->
+  <link rel="stylesheet" href="/CSS/index.css">
+  <link rel="stylesheet" href="/CSS/nav.css">
+  <link rel="stylesheet" href="/CSS/offer_ride.css">
+
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css' rel='stylesheet' />
+
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js'></script>
+
+  <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css">
+  <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
+
+  <!-- Javascript files are here -->
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+  <script src="/JS/map.js" defer charset="utf-8"></script>
+  <script>
+      var fromAddress = "<%= from %>";
+      var toAddress = "<%= to %>";
+
+      window.addEventListener("load",()=>{
+        let fromField = document.querySelector("#mapbox-directions-origin-input .mapboxgl-ctrl-geocoder input");
+        let toField   = document.querySelector("#mapbox-directions-destination-input .mapboxgl-ctrl-geocoder input")
+
+        fromField.value = fromAddress;
+        toField.value = toAddress;
+
+      })
+
+  </script>
+</head>
+<body>
+  <%- include('./partials/navbar.ejs') %>
+  <div class="body-container">
+    <div class="map-container">
+      <div id="googleMap">
+
+      </div>
+      <button id="find-offers-btn">Find Offers</button>
+    </div>
+  </div>
+
+</body>
+</html>

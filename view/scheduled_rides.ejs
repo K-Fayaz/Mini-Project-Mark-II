@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Scheduled Rides</title>
+
+  <!-- CSS files -->
+  <link rel="stylesheet" href="/CSS/index.css">
+  <link rel="stylesheet" href="/CSS/nav.css">
+  <link rel="stylesheet" href="/CSS/account.css">
+  <link rel="stylesheet" href="/CSS/scheduled_ride.css">
+  <!-- <link rel="stylesheet" href="/CSS/request_rides_account.css"> -->
+
+
+  <!-- Javascript files are here -->
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+</head>
+<body>
+  <%- include('./partials/navbar.ejs') %>
+
+  <div class="grid-container">
+    <%- include('./partials/sidebar.ejs') %>
+    <div class="dashboard-data">
+       <% if(!user.scheduledRides.length){ %>
+        <h1>You dont have any scheduled Rides</h1>
+       <% } else { %>
+        <% for(let ride of user.scheduledRides){ %>
+            <div class="scheduled-ride-container">
+              <div class="ride">
+                <div class="ride-users">
+                  <h4>Driver: <%= ride.driver.username %></h4>
+                  <h4>Passenger: <%= ride.passenger.username %></h4>
+                </div>
+                <div class="ride-routes">
+                  <h4>From : <%= ride.ride.ride.from %></h4>
+                  <h4>To : <%= ride.ride.ride.to %></h4>
+                </div>
+                <div class="ride-timings">
+                  <h4>Date: <%= ride.ride.ride.date %> </h4>
+                  <h4>time: <%= ride.ride.ride.time %> </h4>
+                </div>
+                <div class="ride-info">
+                  <h5>Seats Available: <%= ride.seats %></h5>
+                  <h5>Total Price: Rs <%= ride.price %></h5>
+                </div>
+                <% if(loggedIn_user.email == ride.driver.email && ride.status == "Scheduled"){ %>
+                  <button onclick="handleStartClick('<%= ride.passenger.email %>','<%= ride._id %>')" id="start-ride" class="start-ride">Start Ride</button>
+                <% } else{ %>
+                  <button style="visibility: hidden; position: absolute;" id="start-ride" class="start-ride">Start Ride</button>
+                <% } %>
+                
+                <% if(loggedIn_user.email == ride.driver.email && ride.status == "Started"){ %>
+                  <button onclick="handleEndRide('<%= ride.passenger.email %>','<%= ride._id %>','<%= ride.driver._id %>','<%= ride.passenger._id %>')" id="end-ride" class="start-ride">End Ride</button>
+                <% } else{ %>
+                  <button style="visibility: hidden; position: absolute;" id="end-ride" class="start-ride">End Ride</button>
+                <% } %>
+              </div> 
+            </div>
+          <% } %>
+       <% } %>
+      </div>
+      <div class="otp-form-container" id="otp-form-container">
+        <div class="otp-form" id="otp-field-container">
+          <form class="form" onsubmit="handleSubmit(event)">
+            <div style="cursor: pointer;" class="symbol">
+              <h3 onclick="removePOP()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-octagon" viewBox="0 0 16 16">
+                <path d="M4.54.146A.5.5 0 0 1 4.893 0h6.214a.5.5 0 0 1 .353.146l4.394 4.394a.5.5 0 0 1 .146.353v6.214a.5.5 0 0 1-.146.353l-4.394 4.394a.5.5 0 0 1-.353.146H4.893a.5.5 0 0 1-.353-.146L.146 11.46A.5.5 0 0 1 0 11.107V4.893a.5.5 0 0 1 .146-.353L4.54.146zM5.1 1 1 5.1v5.8L5.1 15h5.8l4.1-4.1V5.1L10.9 1H5.1z"/>
+                <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+              </svg></h3>
+            </div>
+            <h1>Enter OTP</h1>
+            <div class="field-container otp-field">
+              <input type="text" id="otp" name="otp" required>
+            </div>
+            <p id="otp-err" style="color: red; font-size: 14px;"></p>
+            <button>Submit</button>
+          </form>
+        </div>
+      </div>
+  </div>
+
+
+  <script src="/JS/scheduled_ride.js" defer></script>
+
+</body>
+</html>

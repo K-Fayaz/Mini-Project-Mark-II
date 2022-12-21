@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title><%= user.username %>'s Account</title>
+
+  <!-- CSS files -->
+  <link rel="stylesheet" href="/CSS/index.css">
+  <link rel="stylesheet" href="/CSS/nav.css">
+  <link rel="stylesheet" href="/CSS/account.css">
+
+
+  <!-- Javascript files are here -->
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+  <script src="/JS/account.js" charset="utf-8" defer></script>
+
+</head>
+<body>
+  <%- include('./partials/navbar.ejs') %>
+
+  <div class="grid-container">
+    <%- include('./partials/sidebar.ejs') %>
+    <div class="dashboard-data">
+      <div class="user-details">
+        <h1>Your Account</h1>
+        <div class="all-fields">
+          <form action="" id="edit-form">
+              <div class="fields-container">
+                <div class="field-container">
+                  <label for="username">Username:</label>
+                  <input class="editable" id="username" type="text" value="<%= user.username %>" readonly>
+                </div>
+                <p id="username-message">Hello</p>
+              </div>
+              <div class="fields-container">
+                <div class="field-container">
+                  <label for="email">Email:</label>
+                  <input class="editable" id="email" type="email" value="<%= user.email %>" readonly>
+                </div>
+                <p id="email-message">Hello</p>
+              </div>
+              <div class="fields-container">
+                <div class="field-container">
+                  <label for="phone">Phone Number:</label>
+                  <% if(!user.phone){ %>
+                    <button id="add-phone-btn">Add Phone</button>
+                  <% }else{ %>
+                    <button style="visibility: hidden;" id="add-phone-btn">Add Phone</button>
+                    <input class="editable" id="phone" type="number" value="<%= user.phone %>" readonly>
+                  <% } %>
+                </div>
+                <p id="phone-message"></p>
+              </div>
+              <button id="save-change-btn">Save</button>
+          </form>
+          <div class="wallet-info">
+            <div class="ether-bal">
+              <h5>Current Balance: </h5>
+              <b id="eth-bal"></b>
+            </div>
+          </div>
+        </div>
+        <div class="user-btn-container">
+          <button id="edit-btn">Edit Profile</button>
+          <button id="change-pass">Change Password</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="phone-add-form-container" class="phone-add-form-container">
+    <form id="phone-add-form" class="phone-add-form">
+      <svg id="remove-phone-add-box-svg" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-square" viewBox="0 0 16 16">
+        <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+      </svg>
+      <h2>Enter your phone number...</h2>
+      <div class="field-container phone">
+        <input type="number" id="phone-add" name="phone">
+        <p id="phone-add-err-mess">Number must contain 10 numbers!</p>
+      </div>
+      <button id="phone-add-form-btn">Add Number</button>
+    </form>
+  </div>
+</body>
+</html>

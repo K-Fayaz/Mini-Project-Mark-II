@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Offered Rides</title>
+
+  <!-- CSS files -->
+  <link rel="stylesheet" href="/CSS/index.css">
+  <link rel="stylesheet" href="/CSS/nav.css">
+  <link rel="stylesheet" href="/CSS/account.css">
+  <link rel="stylesheet" href="/CSS/offered_rides.css">
+
+
+  <!-- Javascript files are here -->
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+  <script src="/JS/offer_manage.js" defer charset="utf-8" ></script>
+
+</head>
+<body>
+  <%- include('./partials/navbar.ejs') %>
+
+  <div class="grid-container">
+    <%- include('./partials/sidebar.ejs') %>
+    <div class="dashboard-data">
+        <% if(user.offers.length){ %>
+          <h1 style="margin: 10px; ">Your offers</h1>
+          <% for(let offer of user.offers){ %>
+            <div id="offer-container-<%= offer._id %>" class="offer-container">
+              <div class="offer-route">
+                <h3>From : <span><%= offer.from %></span> </h3>
+                <h3>to : <span><%= offer.to %></span> </h3>
+              </div>
+              <div class="offer-info">
+                <h3>Available Seats : <span><%= offer.seats %></span> </h3>
+                <h3>Price : <span><%= offer.price %> Rs</span> </h3>
+              </div>
+              <div class="offer-scheduled">
+                <h3>Date : <span> <%= offer.date %> </span> </h3>
+                <h3>Time : <span> <%= offer.time %> </span> </h3>
+              </div>
+              <% if(offer.status == "Offered"){ %>
+                <button id="offer-<%= offer._id %>" onclick="manageOffers(event)">
+                    Delete
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                      <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                    </svg>
+                </button>
+              <% } %>
+            </div>
+            <% } %>
+        <% }else{ %>
+          <h1>you have not offered for ride yet!</h1>
+        <% } %>
+    </div>
+  </div>
+</body>
+</html>

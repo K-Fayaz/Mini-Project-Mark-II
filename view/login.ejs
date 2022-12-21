@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Login | OneTheGo</title>
+
+  <!-- CSS files -->
+  <link rel="stylesheet" href="/CSS/index.css">
+  <link rel="stylesheet" href="/CSS/login.css">
+  <link rel="stylesheet" href="/CSS/nav.css">
+
+
+  <!-- Javascript files are here -->
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+  <!-- <script src="/JS/register.js" defer charset="utf-8"></script> -->
+
+</head>
+<body>
+  <%- include('./partials/navbar.ejs') %>
+  <!-- register form is Here  -->
+  <div class="form-container">
+    <div class="main">
+      <h1>Login</h1>
+      <form class="form" id="register-form" action="/login" method="POST">
+        <div class="input-field email-field">
+          <input type="email" name="email" id="email" autofocus="on" autocomplete="off" required>
+          <p class="invalid" id="invalid-email"></p>
+        </div>
+        <div class="input-field password-field">
+          <input type="password" name="password" id="password" autocomplete="off" required>
+          <p class="invalid" id="invalid-password"></p>
+        </div>
+        <button>Login</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,203 @@
+.grid-container{
+  width: 100%;
+  height: auto;
+  /* background: pink; */
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+.dashboard{
+  flex-basis: 25%;
+  height: 87vh;
+  /* background: red; */
+  position: sticky;
+  top: 10%;
+  left: 0%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border-right: 1px solid black;
+}
+.dashboard-link-container{
+  flex-basis: 30%;
+  /* background: pink; */
+}
+
+.dashboard-link-container ul{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  /* background: yellow; */
+  height:100%;
+}
+
+ul li{
+  list-style-type: none;
+}
+a{
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+}
+
+button{
+  padding: 10px 25px;
+  border: 1px solid var(--brand-color);
+  background: var(--brand-color);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+
+.dashboard-data{
+  flex-basis: 73%;
+  height: auto;
+  /* background: green; */
+}
+
+
+/* dashboard details styling */
+.all-fields{
+  width: 80%;
+  height: auto;
+  min-height: 200px;
+  /* background: red; */
+}
+
+.all-fields form{
+  padding: 10px 0;
+}
+
+#save-change-btn{
+  display: none;
+}
+
+
+.fields-container{
+  width: 100%;
+  /* border-bottom: 1px solid black; */
+}
+
+.fields-container{
+  color: red;
+  font-size: 15px;
+  padding: 5px;
+}
+
+.fields-container p{
+  display: none;
+}
+
+.field-container{
+  width: 70%;
+  /* background: pink; */
+  margin: 5px 0;
+  /* height: 50px; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.field-container label{
+  color: grey;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.field-container input{
+  font-size: 15px;
+  font-weight: bold;
+  padding: 5px 3px;
+}
+
+.field-container input:focus{
+  outline: none;
+  /* border: none; */
+}
+
+.user-btn-container{
+  /* background: red; */
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+}
+
+#remove-phone-add-box-svg{
+  position: absolute;
+  left: 95%;
+  top: -13%;
+  cursor: pointer;
+}
+
+.phone-add-form{
+  position: relative;
+}
+
+.phone-add-form-container{
+  display: grid;
+  place-items: center;
+  padding: 30px 20px;
+  border-radius: 5px;
+  position: absolute;
+  left: 45%;
+  top: 30%;
+  z-index: 2;
+  background: white;
+  box-shadow: -1px 0px 10px 0px rgba(0,0,0,0.83);
+  display: none;
+}
+.phone{
+  position: relative;
+  margin: 15px 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+#phone-add-err-mess{
+  text-align: left;
+  margin: 5px 0;
+  display: none;
+}
+
+.phone input{
+  width: 100%;
+  transition: 200ms;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.phone input:focus{
+  padding-left: 10px;
+}
+
+.phone::after{
+  content: "phone";
+  position: absolute;
+  background: white;
+  top: -8px;
+  left: 10px;
+  padding: 0px 10px;
+}
+
+#phone-add-err-mess{
+  color: red;
+}
+
+.wallet-info{
+  width: 70%;
+  /* height: 20px; */
+  /* background-color: red; */
+  margin: 10px 0;
+}
+
+.address{
+  display: flex;
+  justify-content: space-between;
+}
+
+.ether-bal{
+  display: flex;
+  justify-content: space-between;
+}
