@@ -5,8 +5,10 @@ const mongoose = require("mongoose");
 const DB_URL    = process.env.DEV_DB_URL;
 const ATLAS_URL = process.env.ATLAS_DB_URL; 
 
+const atlasUrl = "mongodb+srv://fayazkudremane3000:yepAXXvmr0KDbRAL@cluster0.rmjzaoy.mongodb.net/?retryWrites=true&w=majority";
 
-mongoose.connect(DB_URL)
+
+mongoose.connect(atlasUrl)
   .then((data)=>{
     console.log('connected to MongoDB database');
   })
